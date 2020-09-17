@@ -55,15 +55,23 @@ public class DubboRelaxedBinding2AutoConfiguration {
     @Bean(name = BASE_PACKAGES_PROPERTY_RESOLVER_BEAN_NAME)
     public PropertyResolver dubboScanBasePackagesPropertyResolver(ConfigurableEnvironment environment) {
         ConfigurableEnvironment propertyResolver = new AbstractEnvironment() {
+            @Override
             protected void customizePropertySources(MutablePropertySources propertySources) {
+                //dubbo.scan.basePackages=com.story.dubbo.provider
+                //dubbo包扫描的一些属性配置
                 Map<String, Object> dubboScanProperties = PropertySourcesUtils.getSubProperties(environment, DUBBO_SCAN_PREFIX);
                 propertySources.addLast(new MapPropertySource("dubboScanProperties", dubboScanProperties));
             }
         };
+        //添加到配置属性数据源
         ConfigurationPropertySources.attach(propertyResolver);
         return propertyResolver;
     }
 
+    /**
+     * 如果DubboConfigBinder没有加载， 则加载当前bean
+     * @return
+     */
     @ConditionalOnMissingBean(name = RELAXED_DUBBO_CONFIG_BINDER_BEAN_NAME, value = DubboConfigBinder.class)
     @Bean(RELAXED_DUBBO_CONFIG_BINDER_BEAN_NAME)
     @Scope(scopeName = SCOPE_PROTOTYPE)

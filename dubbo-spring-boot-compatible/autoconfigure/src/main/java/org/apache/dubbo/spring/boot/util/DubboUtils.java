@@ -51,6 +51,7 @@ public abstract class DubboUtils {
 
     /**
      * The prefix of property name for Dubbo scan
+     * dubbo 扫描的属性前缀，dubbo.scan.
      */
     public static final String DUBBO_SCAN_PREFIX = DUBBO_PREFIX + PROPERTY_NAME_SEPARATOR + "scan" + PROPERTY_NAME_SEPARATOR;
 
@@ -123,6 +124,7 @@ public abstract class DubboUtils {
 
     /**
      * The bean name of {@link PropertyResolver} for {@link ServiceAnnotationBeanPostProcessor}'s base-packages
+     * Service注解bean后处理器的基础包，的属性解决器bean名
      */
     public static final String BASE_PACKAGES_PROPERTY_RESOLVER_BEAN_NAME = "dubboScanBasePackagesPropertyResolver";
 
