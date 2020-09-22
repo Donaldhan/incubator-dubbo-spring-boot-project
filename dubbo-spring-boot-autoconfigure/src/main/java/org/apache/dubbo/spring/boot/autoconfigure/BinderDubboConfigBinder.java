@@ -44,7 +44,7 @@ class BinderDubboConfigBinder extends AbstractDubboConfigBinder {
 
         Iterable<PropertySource<?>> propertySources = getPropertySources();
 
-        // Converts ConfigurationPropertySources
+        // Converts ConfigurationPropertySources 转换Spring配置属性源
         Iterable<ConfigurationPropertySource> configurationPropertySources = from(propertySources);
 
         // Wrap Bindable from DubboConfig instance
@@ -60,6 +60,10 @@ class BinderDubboConfigBinder extends AbstractDubboConfigBinder {
 
     }
 
+    /**
+     * 获取绑定器
+     * @return
+     */
     private BindHandler getBindHandler() {
         BindHandler handler = BindHandler.DEFAULT;
         if (isIgnoreInvalidFields()) {
