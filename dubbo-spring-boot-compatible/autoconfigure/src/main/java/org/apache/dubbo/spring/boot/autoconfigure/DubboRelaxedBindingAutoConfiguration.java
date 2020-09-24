@@ -41,11 +41,20 @@ import static org.springframework.beans.factory.config.ConfigurableBeanFactory.S
 @Configuration
 public class DubboRelaxedBindingAutoConfiguration {
 
+    /**
+     * Service注解bean后处理器的基础包，的属性解决器bean名
+     * @param environment
+     * @return
+     */
     @Bean(name = BASE_PACKAGES_PROPERTY_RESOLVER_BEAN_NAME)
     public PropertyResolver dubboScanBasePackagesPropertyResolver(Environment environment) {
         return new RelaxedPropertyResolver(environment, DUBBO_SCAN_PREFIX);
     }
 
+    /**
+     * dubbo配置绑定器
+     * @return
+     */
     @ConditionalOnMissingBean(name = RELAXED_DUBBO_CONFIG_BINDER_BEAN_NAME, value = DubboConfigBinder.class)
     @Bean(RELAXED_DUBBO_CONFIG_BINDER_BEAN_NAME)
     @Scope(scopeName = SCOPE_PROTOTYPE)
