@@ -57,7 +57,7 @@ public class DubboAutoConfiguration {
 
     /**
      * Creates {@link ServiceAnnotationBeanPostProcessor} Bean
-     *
+     * 创建Service注解bean后处理器
      * @param propertyResolver {@link PropertyResolver} Bean
      * @return {@link ServiceAnnotationBeanPostProcessor}
      */
@@ -72,7 +72,7 @@ public class DubboAutoConfiguration {
 
     /**
      * Creates {@link ReferenceAnnotationBeanPostProcessor} Bean if Absent
-     *
+     * 创建引用注解bean后处理器
      * @return {@link ReferenceAnnotationBeanPostProcessor}
      */
     @ConditionalOnMissingBean
@@ -83,7 +83,7 @@ public class DubboAutoConfiguration {
 
     /**
      * Single Dubbo Config Configuration
-     *
+     * 单例dubbo配置
      * @see EnableDubboConfig
      * @see DubboConfigConfiguration.Single
      */
