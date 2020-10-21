@@ -130,7 +130,7 @@ public abstract class DubboUtils {
 
     /**
      * Filters Dubbo Properties from {@link ConfigurableEnvironment}
-     *
+     *从环境变量中过滤dubbo配置
      * @param environment {@link ConfigurableEnvironment}
      * @return Read-only SortedMap
      */

@@ -40,6 +40,7 @@ import java.util.Properties;
  * The lowest precedence {@link EnvironmentPostProcessor} processes
  * {@link SpringApplication#setDefaultProperties(Properties) Spring Boot default properties} for Dubbo
  * as late as possible before {@link ConfigurableApplicationContext#refresh() application context refresh}.
+ *
  */
 public class DubboDefaultPropertiesEnvironmentPostProcessor implements EnvironmentPostProcessor, Ordered {
 
